@@ -1,24 +1,21 @@
-﻿using static Areas.Areas;
+﻿namespace Areas.Figures;
 
-namespace Areas.Figures
+public class Rectangle : Areable
 {
-    public class Rectangle : Areable
+    private double _width;
+    private double _height;
+
+    public Rectangle(double width, double height)
     {
-        private double _width;
-        private double _height;
+        if (width < 0 || height < 0)
+            throw new ArgumentOutOfRangeException("Rectangle sides must be more than 0");
 
-        public Rectangle(double width, double height)
-        {
-            if (width < 0 || height < 0)
-                throw new ArgumentOutOfRangeException("Rectangle sides must be more than 0");
+        _width = width;
+        _height = height;
+    }
 
-            _width = width;
-            _height = height;
-        }
-
-        public double CalculateArea()
-        {
-            return _height * _width;
-        }
+    public double CalculateArea()
+    {
+        return _height * _width;
     }
 }

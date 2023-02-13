@@ -1,23 +1,20 @@
-﻿using static Areas.Areas;
+﻿namespace Areas.Figures;
 
-namespace Areas.Figures
+public class Circle : Areable
 {
-    public class Circle : Areable
+
+    private double _radius;
+
+    public Circle(double radius)
     {
+        if (radius < 0)
+            throw new ArgumentOutOfRangeException("Radius must be more than 0");
 
-        private double _radius;
+        _radius = radius;
+    }
 
-        public Circle(double radius)
-        {
-            if (radius < 0)
-                throw new ArgumentOutOfRangeException("Radius must be more than 0");
-
-            _radius = radius;
-        }
-
-        public double CalculateArea()
-        {
-            return _radius * _radius * Math.PI;
-        }
+    public double CalculateArea()
+    {
+        return _radius * _radius * Math.PI;
     }
 }

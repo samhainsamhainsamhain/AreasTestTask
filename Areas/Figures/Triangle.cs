@@ -1,40 +1,36 @@
-﻿using static Areas.Areas;
-
-namespace Areas.Figures
+﻿namespace Areas.Figures;
+public class Triangle : Areable
 {
-    public class Triangle : Areable
+    private readonly Lazy<bool> _isRightAngled;
+    private double _sideA;
+    private double _sideB;
+    private double _sideC;
+
+    public bool IsRightAngledTriangle => _isRightAngled.Value;
+
+    public Triangle(double sideA, double sideB, double sideC)
     {
-        private readonly Lazy<bool> _isRightAngled;
-        private double _sideA;
-        private double _sideB;
-        private double _sideC;
+        if (sideA < 0 || sideB < 0 || sideC < 0)
+            throw new ArgumentOutOfRangeException("Side length can't be negative");
 
-        public bool IsRightAngledTriangle => _isRightAngled.Value;
+        _sideA = sideA;
+        _sideB = sideB;
+        _sideC = sideC;
 
-        public Triangle(double sideA, double sideB, double sideC)
-        {
-            if (sideA < 0 || sideB < 0 || sideC < 0)
-                throw new ArgumentOutOfRangeException("Side length can't be negative");
+        _isRightAngled = new Lazy<bool>(CheckIsRightAngled);
+    }
 
-            _sideA = sideA;
-            _sideB = sideB;
-            _sideC = sideC;
+    public double CalculateArea()
+    {
+        double p = (_sideA + _sideB + _sideC) / 2;
 
-            _isRightAngled = new Lazy<bool>(CheckIsRightAngled);
-        }
+        return Math.Sqrt(p * (p - _sideA) * (p - _sideB) * (p - _sideC));
+    }
 
-        public double CalculateArea()
-        {
-            double p = (_sideA + _sideB + _sideC) / 2;
-
-            return Math.Sqrt(p * (p - _sideA) * (p - _sideB) * (p - _sideC));
-        }
-
-        private bool CheckIsRightAngled()
-        {
-            var maxSide = new[] { _sideA, _sideB, _sideC }.Max();
-            var maxSideSqr = maxSide * maxSide;
-            return maxSideSqr + maxSideSqr == _sideA * _sideA + _sideB * _sideB + _sideC * _sideC;
-        }
+    private bool CheckIsRightAngled()
+    {
+        var maxSide = new[] { _sideA, _sideB, _sideC }.Max();
+        var maxSideSqr = maxSide * maxSide;
+        return maxSideSqr + maxSideSqr == _sideA * _sideA + _sideB * _sideB + _sideC * _sideC;
     }
 }

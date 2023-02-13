@@ -1,10 +1,5 @@
-﻿namespace Areas
+﻿namespace Areas;
+public interface Areable
 {
-    public class Areas
-    {
-        public interface Areable
-        {
-            double CalculateArea();
-        }
-    }
+    double CalculateArea();
 }

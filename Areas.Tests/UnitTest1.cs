@@ -8,9 +8,9 @@ namespace Areas.Tests
         [TestMethod]
         public void RectangeAreaCalculationTest()
         {
-            var rectangle = new Rectangle(5, 5);
+            Rectangle rectangle = new Rectangle(5, 5);
 
-            var rectArea = rectangle.CalculateArea();
+            double rectArea = rectangle.CalculateArea();
 
             Assert.AreEqual(25, rectArea);
         }
@@ -18,9 +18,9 @@ namespace Areas.Tests
         [TestMethod]
         public void CircleAreaCalculationTest()
         {
-            var circle = new Circle(3);
+            Circle circle = new Circle(3);
 
-            var circleArea = circle.CalculateArea();
+            double circleArea = circle.CalculateArea();
 
             Assert.AreEqual(28.274333882308138, circleArea);
         }
@@ -28,9 +28,9 @@ namespace Areas.Tests
         [TestMethod]
         public void TriangleAreaCalculationTest()
         {
-            var triangle = new Triangle(5, 5, 5);
+            Triangle triangle = new Triangle(5, 5, 5);
 
-            var triangleArea = triangle.CalculateArea();
+            double triangleArea = triangle.CalculateArea();
 
             Assert.AreEqual(10.825317547305483, triangleArea);
         }
@@ -38,9 +38,9 @@ namespace Areas.Tests
         [TestMethod]
         public void TestIsRightTriangle_True()
         {
-            var triangle = new Triangle(5, 4, 3);
+            Triangle triangle = new Triangle(5, 4, 3);
 
-            var triangleIsRight = triangle.IsRightAngledTriangle;
+            bool triangleIsRight = triangle.IsRightAngledTriangle;
 
             Assert.IsTrue(triangleIsRight);
         }
@@ -48,9 +48,9 @@ namespace Areas.Tests
         [TestMethod]
         public void TestIsRightTriangle_False()
         {
-            var triangle = new Triangle(5, 6, 1);
+            Triangle triangle = new Triangle(5, 6, 1);
 
-            var triangleIsRight = triangle.IsRightAngledTriangle;
+            bool triangleIsRight = triangle.IsRightAngledTriangle;
 
             Assert.IsFalse(triangleIsRight);
         }
