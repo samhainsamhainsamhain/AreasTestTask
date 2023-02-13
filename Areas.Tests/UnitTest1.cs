@@ -1,4 +1,4 @@
-using static Areas.Areas;
+using Areas.Figures;
 
 namespace Areas.Tests
 {
@@ -14,6 +14,7 @@ namespace Areas.Tests
 
             Assert.AreEqual(25, rectArea);
         }
+
         [TestMethod]
         public void CircleAreaCalculationTest()
         {
@@ -23,6 +24,7 @@ namespace Areas.Tests
 
             Assert.AreEqual(28.274333882308138, circleArea);
         }
+
         [TestMethod]
         public void TriangleAreaCalculationTest()
         {
@@ -32,6 +34,7 @@ namespace Areas.Tests
 
             Assert.AreEqual(10.825317547305483, triangleArea);
         }
+
         [TestMethod]
         public void TestIsRightTriangle_True()
         {
@@ -41,6 +44,7 @@ namespace Areas.Tests
 
             Assert.IsTrue(triangleIsRight);
         }
+
         [TestMethod]
         public void TestIsRightTriangle_False()
         {
