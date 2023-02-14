@@ -1,9 +1,9 @@
 ﻿namespace Areas.Figures;
 
-public class Rectangle : Areable
+public class Rectangle : IFigure
 {
-    private double _width;
-    private double _height;
+    private readonly double _width;
+    private readonly double _height;
 
     public Rectangle(double width, double height)
     {

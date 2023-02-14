@@ -1,12 +1,12 @@
 ﻿namespace Areas.Figures;
-public class Triangle : Areable
+public class Triangle : IFigure
 {
     private readonly Lazy<bool> _isRightAngled;
-    private double _sideA;
-    private double _sideB;
-    private double _sideC;
+    private readonly double _sideA;
+    private readonly double _sideB;
+    private readonly double _sideC;
 
-    public bool IsRightAngledTriangle => _isRightAngled.Value;
+    public bool IsRightAngled => _isRightAngled.Value;
 
     public Triangle(double sideA, double sideB, double sideC)
     {

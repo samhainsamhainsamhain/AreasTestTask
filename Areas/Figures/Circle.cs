@@ -1,9 +1,9 @@
 ﻿namespace Areas.Figures;
 
-public class Circle : Areable
+public class Circle : IFigure
 {
 
-    private double _radius;
+    private readonly double _radius;
 
     public Circle(double radius)
     {
